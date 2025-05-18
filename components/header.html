@@ -1,0 +1,44 @@
+<header class="header bg-primary shadow-sm sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4">
+        <div class="flex items-center justify-between">
+            <!-- Logo -->
+            <a href="/" class="flex items-center">
+                <img src="/assets/images/logo-light.svg" alt="SendMe Logo" class="logo-light h-8">
+                <img src="/assets/images/logo-dark.svg" alt="SendMe Logo" class="logo-dark h-8 hidden">
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="/" class="nav-link hover-underline">Home</a>
+                <a href="/services.html" class="nav-link hover-underline">Services</a>
+                <a href="/pricing.html" class="nav-link hover-underline">Pricing</a>
+                <a href="/contact.html" class="nav-link hover-underline">Contact</a>
+                <a href="#order" class="btn-primary ml-4">Send a Package</a>
+            </nav>
+            
+            <!-- Theme Toggle and Mobile Menu Button -->
+            <div class="flex items-center space-x-4">
+                <label class="theme-toggle relative inline-flex items-center cursor-pointer">
+                    <input type="checkbox" id="theme-toggle" class="sr-only">
+                    <div class="w-11 h-6 bg-secondary rounded-full after:absolute after:top-0.5 after:left-[2px] after:bg-primary after:rounded-full after:h-5 after:w-5 after:transition-all"></div>
+                    <span class="ml-2 text-sm hidden md:inline">Dark Mode</span>
+                </label>
+                
+                <button class="mobile-menu-toggle md:hidden p-2 rounded-lg hover:bg-secondary-light">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu hidden md:hidden mt-4 pb-4">
+            <a href="/" class="block py-2 nav-link">Home</a>
+            <a href="/services.html" class="block py-2 nav-link">Services</a>
+            <a href="/pricing.html" class="block py-2 nav-link">Pricing</a>
+            <a href="/contact.html" class="block py-2 nav-link">Contact</a>
+            <a href="#order" class="btn-primary w-full mt-4">Send a Package</a>
+        </div>
+    </div>
+</header>

@@ -1,0 +1,66 @@
+<div class="order-panel container mx-auto px-4" data-aos="zoom-in">
+    <div class="bg-primary shadow-xl rounded-lg p-8 max-w-4xl mx-auto">
+        <h3 class="text-2xl font-bold mb-6">Send a Package Now</h3>
+        <form id="order-form" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+                <label for="pickup" class="block mb-2">Pickup Location</label>
+                <input type="text" id="pickup" class="w-full p-3 border rounded-lg" required>
+            </div>
+            <div>
+                <label for="destination" class="block mb-2">Destination</label>
+                <input type="text" id="destination" class="w-full p-3 border rounded-lg" required>
+            </div>
+            <div>
+                <label for="package-type" class="block mb-2">Package Type</label>
+                <select id="package-type" class="w-full p-3 border rounded-lg">
+                    <option value="document">Document</option>
+                    <option value="small">Small Package</option>
+                    <option value="medium">Medium Package</option>
+                    <option value="large">Large Package</option>
+                </select>
+            </div>
+            <div>
+                <label for="payment-method" class="block mb-2">Payment Method</label>
+                <select id="payment-method" class="w-full p-3 border rounded-lg">
+                    <option value="mpesa">M-Pesa</option>
+                    <option value="cash">Cash on Delivery</option>
+                    <option value="card">Credit Card</option>
+                </select>
+            </div>
+            <div class="md:col-span-2">
+                <button type="submit" class="btn-accent w-full py-3 px-6 rounded-lg font-medium">
+                    Calculate Price & Continue
+                </button>
+            </div>
+        </form>
+
+        <form class="bg-white p-6 rounded-lg shadow-lg max-w-2xl mx-auto">
+            <h3 class="text-2xl font-bold mb-4">Place Your Order</h3>
+            <input type="text" placeholder="Pickup Address" class="w-full p-3 mb-4 border rounded" required>
+            <input type="text" placeholder="Dropoff Address" class="w-full p-3 mb-4 border rounded" required>
+            <select class="w-full p-3 mb-4 border rounded">
+              <option value="">Select Package Type</option>
+              <option value="small">Small (Under 5kg)</option>
+              <option value="medium">Medium (5-20kg)</option>
+              <option value="large">Large (20kg+)</option>
+            </select>
+            <button type="submit" class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-6 rounded w-full">
+              Submit Order
+            </button>
+          </form>
+        
+        <!-- Will be populated by JavaScript -->
+        <div id="payment-section" class="hidden mt-8">
+            <div class="bg-secondary-light p-4 rounded-lg mb-4">
+                <h4 class="font-bold mb-2">Order Summary</h4>
+                <p>Estimated price: <span id="estimated-price" class="font-bold">KES 0</span></p>
+            </div>
+            <div id="mpesa-payment" class="hidden">
+                <p class="mb-4">Complete payment via M-Pesa:</p>
+                <button id="initiate-mpesa" class="btn-primary">
+                    Pay with M-Pesa
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

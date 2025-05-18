@@ -1,0 +1,66 @@
+/* SendMe - Utility Classes */
+
+/* Spacing Utilities */
+@each $size in $spacing-multipliers {
+    $i: index($spacing-multipliers, $size) - 1;
+    .m-#{$i} { margin: #{$size}rem !important; }
+    .mt-#{$i} { margin-top: #{$size}rem !important; }
+    .mb-#{$i} { margin-bottom: #{$size}rem !important; }
+    .ml-#{$i} { margin-left: #{$size}rem !important; }
+    .mr-#{$i} { margin-right: #{$size}rem !important; }
+    .mx-#{$i} { margin-left: #{$size}rem !important; margin-right: #{$size}rem !important; }
+    .my-#{$i} { margin-top: #{$size}rem !important; margin-bottom: #{$size}rem !important; }
+    
+    .p-#{$i} { padding: #{$size}rem !important; }
+    .pt-#{$i} { padding-top: #{$size}rem !important; }
+    .pb-#{$i} { padding-bottom: #{$size}rem !important; }
+    .pl-#{$i} { padding-left: #{$size}rem !important; }
+    .pr-#{$i} { padding-right: #{$size}rem !important; }
+    .px-#{$i} { padding-left: #{$size}rem !important; padding-right: #{$size}rem !important; }
+    .py-#{$i} { padding-top: #{$size}rem !important; padding-bottom: #{$size}rem !important; }
+}
+
+/* Display Utilities */
+.block { display: block !important; }
+.inline-block { display: inline-block !important; }
+.inline { display: inline !important; }
+.flex { display: flex !important; }
+.grid { display: grid !important; }
+.hidden { display: none !important; }
+
+/* Flex Utilities */
+.flex-col { flex-direction: column !important; }
+.flex-wrap { flex-wrap: wrap !important; }
+.items-center { align-items: center !important; }
+.items-start { align-items: flex-start !important; }
+.items-end { align-items: flex-end !important; }
+.justify-center { justify-content: center !important; }
+.justify-between { justify-content: space-between !important; }
+.justify-around { justify-content: space-around !important; }
+
+/* Grid Utilities */
+.grid-cols-1 { grid-template-columns: repeat(1, 1fr) !important; }
+.grid-cols-2 { grid-template-columns: repeat(2, 1fr) !important; }
+.grid-cols-3 { grid-template-columns: repeat(3, 1fr) !important; }
+
+/* Text Utilities */
+.text-center { text-align: center !important; }
+.text-left { text-align: left !important; }
+.text-right { text-align: right !important; }
+.font-bold { font-weight: 700 !important; }
+.font-semibold { font-weight: 600 !important; }
+.uppercase { text-transform: uppercase !important; }
+.capitalize { text-transform: capitalize !important; }
+
+/* Responsive Utilities */
+@each $name, $breakpoint in $breakpoints {
+    @media (min-width: $breakpoint) {
+        .#{$name}\:hidden { display: none !important; }
+        .#{$name}\:block { display: block !important; }
+        .#{$name}\:flex { display: flex !important; }
+        .#{$name}\:grid { display: grid !important; }
+        
+        .#{$name}\:grid-cols-2 { grid-template-columns: repeat(2, 1fr) !important; }
+        .#{$name}\:grid-cols-3 { grid-template-columns: repeat(3, 1fr) !important; }
+    }
+}

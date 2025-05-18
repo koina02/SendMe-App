@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing | SendMe</title>
+    <meta name="description" content="Transparent pricing for all SendMe delivery services. Choose the perfect plan for your needs.">
+    <link rel="stylesheet" href="/css/main.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="icon" href="/assets/images/favicon.ico">
+</head>
+<body class="bg-primary text-secondary">
+    <!-- Header Component -->
+    <div id="header-component"></div>
+    
+    <main>
+        <!-- Pricing Hero -->
+        <section class="hero bg-gradient-to-r from-accent/10 to-secondary-light py-20">
+            <div class="container mx-auto px-4 text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6" data-aos="fade-up">Simple, Transparent Pricing</h1>
+                <p class="text-xl max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                    No hidden fees. No surprises.
+                </p>
+            </div>
+        </section>
+
+        <!-- Pricing Tabs -->
+        <section class="py-12">
+            <div class="container mx-auto px-4">
+                <div class="flex justify-center mb-12">
+                    <div class="inline-flex rounded-md shadow-sm" role="group">
+                        <button type="button" class="px-6 py-3 text-sm font-medium rounded-l-lg border focus:z-10 focus:ring-2 focus:ring-accent pricing-tab active" data-pricing="individual">
+                            Individual
+                        </button>
+                        <button type="button" class="px-6 py-3 text-sm font-medium border-t border-b focus:z-10 focus:ring-2 focus:ring-accent pricing-tab" data-pricing="business">
+                            Business
+                        </button>
+                        <button type="button" class="px-6 py-3 text-sm font-medium rounded-r-lg border focus:z-10 focus:ring-2 focus:ring-accent pricing-tab" data-pricing="enterprise">
+                            Enterprise
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Individual Pricing -->
+                <div id="individual-pricing" class="pricing-content active">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <!-- Pricing cards would be loaded here -->
+                        <div id="pricing-card-standard"></div>
+                        <div id="pricing-card-express"></div>
+                        <div id="pricing-card-premium"></div>
+                    </div>
+                </div>
+
+                <!-- Business Pricing (hidden by default) -->
+                <div id="business-pricing" class="pricing-content hidden">
+                    <!-- Content would be loaded dynamically -->
+                </div>
+
+                <!-- Enterprise Pricing (hidden by default) -->
+                <div id="enterprise-pricing" class="pricing-content hidden">
+                    <!-- Content would be loaded dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="py-20 bg-secondary-light">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+                
+                <div class="max-w-3xl mx-auto">
+                    <!-- FAQ Item -->
+                    <div class="mb-6 border-b pb-6">
+                        <button class="faq-question flex justify-between items-center w-full text-left font-semibold text-lg">
+                            <span>How are delivery prices calculated?</span>
+                            <i class="fas fa-chevron-down transition-transform"></i>
+                        </button>
+                        <div class="faq-answer mt-4 hidden">
+                            <p class="text-secondary">Our prices are based on package weight, dimensions, delivery distance, and speed of service. You'll see the exact price before confirming your order.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- More FAQ items would go here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Component -->
+    <div id="footer-component"></div>
+
+    <script src="/assets/js/main.js"></script>
+    <script>
+        // Load pricing cards
+        document.addEventListener('DOMContentLoaded', function() {
+            loadComponent('pricing-card-standard', '/components/pricing-card.html');
+            loadComponent('pricing-card-express', '/components/pricing-card.html');
+            loadComponent('pricing-card-premium', '/components/pricing-card.html');
+            
+            // Pricing tab functionality
+            document.querySelectorAll('.pricing-tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Update active tab
+                    document.querySelectorAll('.pricing-tab').forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show corresponding content
+                    const target = this.getAttribute('data-pricing');
+                    document.querySelectorAll('.pricing-content').forEach(c => c.classList.add('hidden'));
+                    document.getElementById(`${target}-pricing`).classList.remove('hidden');
+                });
+            });
+            
+            // FAQ toggle functionality
+            document.querySelectorAll('.faq-question').forEach(question => {
+                question.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const icon = this.querySelector('i');
+                    
+                    answer.classList.toggle('hidden');
+                    icon.classList.toggle('rotate-180');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
